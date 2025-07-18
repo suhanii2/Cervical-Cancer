@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User symptoms details</title>
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+
+</head>
+
+<body>
+    <nav>
+        <li><a class="active" href="/">Covid Awareness</a></li>
+        <li><a href="/#symptoms">Symptoms</a></li>
+        <li><a href="/#impinfo">Important Info</a></li>
+        <li><a href="/#precautions">Precautions</a></li>
+        <li><a href="/link/#quicklinks">Quick Links</a></li>
+        <li><a href="/link/#mythbusters">Myths vs Facts</a></li>
+        <li>
+            <form method="get" action="/ask">
+                <button class="btn">Ask us!</button>
+            </form>
+        </li>
+    </nav>
+    <div class="content">
+        <h1 align="center">User Symptoms Details</h1>
+        <% if (users.length> 0) { %>
+
+            <table style="width: 100%;">
+                <tr>
+                    <th>User</th>
+                    <th>Age</th>
+                    <th>City</th>
+                    <th>Gender</th>
+                    <th>Symptoms</th>
+                    <th>Show more</th>
+                    <th>Delete User</th>
+                </tr>
+                <% users.forEach(user=> { %>
+                    <tr>
+                        <td>
+                            <%= user.name %>
+                        </td>
+                        <td>
+                            <%= user.age %>
+                        </td>
+                        <td>
+                            <%= user.city %>
+                        </td>
+                        <td>
+                            <%= user.gender %>
+                        </td>
+                        <td>
+                            <%= user.symptoms?.toString().split(",").join(", ") %>
+                        </td>
+                        <td>
+                            <a class=" user-btn" href=" /user/<%=user._id %>">Show</a>
+                        </td>
+                        <td>
+                            <form method="post" action="/user/<%=user._id %>?_method=DELETE">
+                                <button class="user-btn">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <% }) %>
+            </table>
+
+            <% }else{ %>
+
+                <h2 class="not-user">First of all any user should register.</h2>
+
+                <% } %>
+
+
+
+
+    </div>
+</body>
+
+</html>

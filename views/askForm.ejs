@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aks for your problems</title>
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+
+</head>
+
+<body>
+    <nav>
+        <li><a class="active" href="/">Covid Awareness</a></li>
+        <li><a href="/#symptoms">Symptoms</a></li>
+        <li><a href="/#impinfo">Important Info</a></li>
+        <li><a href="/#precautions">Precautions</a></li>
+        <li><a href="/link/#quicklinks">Quick Links</a></li>
+        <li><a href="/link/#mythbusters">Myths vs Facts</a></li>
+        <li>
+            <form method="get" action="/ask">
+                <button class="btn">Ask us!</button>
+            </form>
+        </li>
+    </nav>
+    <div class="content">
+        <form class="ask-box" method="post" action="/submit">
+            <label for="name">Name</label>
+            <input required type="text" name="name" placeholder="Full Name">
+
+            <label for="age">Age</label>
+            <input required type="number" name="age" placeholder="Age">
+
+
+            <label for="city">City</label>
+            <input required type="text" name="city" placeholder="City">
+
+
+            <label for="gender">Gender:</label>
+            <li>
+                <label for="male">Male</label>
+                <input required type="radio" id="male" name="gender" value="male">
+            </li>
+
+            <li>
+                <label for="female">Female</label>
+                <input required type="radio" id="female" name="gender" value="female">
+            </li>
+
+            <li>
+                <label for="other">Other</label>
+                <input required type="radio" id="other" name="gender" value="other">
+            </li>
+
+            <label>Symptoms of Cervical Cancer :</label>
+
+            <li>
+                <label for="bleeding">Abnormal Vaginal Bleeding:</label>
+                <input type="checkbox" id="bleeding" name="symptoms[]" value="abnormal-bleeding and unusual-discharge">
+            </li>
+
+            <li>
+                <label for="pelvic-pain">Pelvic Pain :</label>
+                <input type="checkbox" id="pelvic-pain" name="symptoms[]" value="pelvic-pain">
+            </li>
+
+            <li>
+                <label for="Lack-of-appetite-and-certain-weightloss">Lack of appetite and certain weightloss:</label>
+                <input type="checkbox" id="Lack-of-appetite-and-certain-weightloss" name="symptoms[]" value="Lack-of-appetite-and-certain-weightloss">
+            </li>
+
+            <li>
+                <label for="urinary-problems">Urinary Problems :</label>
+                <input type="checkbox" id="urinary-problems" name="symptoms[]" value="urinary-problems">
+            </li>
+
+            <li>
+                <label for="fatigue">Fatigue:</label>
+                <input type="checkbox" id="fatigue" name="symptoms[]" value="fatigue">
+            </li>
+
+            <input id="submit-btn" type="submit" value="submit">
+        </form>
+    </div>
+</body>
+
+</html>

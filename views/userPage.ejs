@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User symptoms details</title>
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+
+</head>
+
+<body>
+    <nav>
+        <li><a class="active" href="/">Covid Awareness</a></li>
+        <li><a href="/#symptoms">Symptoms</a></li>
+        <li><a href="/#impinfo">Important Info</a></li>
+        <li><a href="/#precautions">Precautions</a></li>
+        <li><a href="/link/#quicklinks">Quick Links</a></li>
+        <li><a href="/link/#mythbusters">Myths vs Facts</a></li>
+        <li>
+            <form method="get" action="/ask">
+                <button class="btn">Ask us!</button>
+            </form>
+        </li>
+    </nav>
+    <div class="content">
+        <h1 align="center">User Symptoms Details</h1>
+        <% if (user) { %>
+
+            <table style="width: 100%;">
+                <tr>
+                    <th>User</th>
+                    <th>Age</th>
+                    <th>City</th>
+                    <th>Gender</th>
+                    <th>Symptoms</th>
+                </tr>
+                <%# users.forEach(user=> { %>
+                    <tr>
+                        <td>
+                            <%= user.name %>
+                        </td>
+                        <td>
+                            <%= user.age %>
+                        </td>
+                        <td>
+                            <%= user.city %>
+                        </td>
+                        <td>
+                            <%= user.gender %>
+                        </td>
+                        <td>
+                            <%= user.symptoms?.toString().split(",").join(", ") %>
+                        </td>
+                    </tr>
+                    <%# }) %>
+                    <tr>
+                        <a class=" user-btn" href=" /user">Back</a>
+                    </tr>
+            </table>
+
+            <% }else{ %>
+
+                <h2 class=" not-user">Something wend wrong.</h2>
+                <a class="user-btn" href="/user">Show</a>
+
+            <% } %>
+
+                    <% user.symptoms?.forEach(symptom=> { %>
+                        <h2 class="symtom-head">
+                            <%= symptom %>
+                        </h2>
+                        <div class="symtom-page">
+                            <%- include(`./symptom/${symptom}`) %>
+                        </div>
+        <% }) %>
+
+    </div>
+</body>
+
+</html>
